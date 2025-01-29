@@ -8,5 +8,5 @@ TODO (a todo-list in a todo-list project, lol) :
 - If there are too many todos, you should be able to scroll in the todo list, but only the list container. 
 - When a todo is checked off, an animation should start so that the todo becomes smaller and flies away.
 - Change background depending on time, currently noon is displayed.
-- Add localStorage, so all todos are saved (also already done todos)
+- Add localStorage, so all todos are saved (also already done todos) ✅
 - optional: additional view with already completed todos
