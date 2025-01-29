@@ -16,6 +16,9 @@ const checkbox4 = document.getElementById(`checkbox4`);
 const addBtn = document.querySelector(`.add-btn`);
 const input = document.querySelector(`.todo-input`);
 
+const now = new Date();
+let hour = now.getHours();
+
 function saveTodos() {
   const todos = {
     list1: {
@@ -108,3 +111,19 @@ checkbox4.addEventListener("change", () => {
   checkbox4.checked = false;
   saveTodos();
 });
+
+if (hour < 5 || hour > 20){
+    document.querySelector(`body`).style.background = `linear-gradient(to bottom, #081443 70%, #1e3597)`;
+    document.querySelector(`.todo-container`).style.backgroundColor = `#1e3597`;
+    document.querySelector(`.todo-container`).style.color = `white`;
+    document.querySelector(`.todo-container`).style.boxShadow = `0 0 2px 5px #1e3597`;
+    document.querySelector(`.add-btn`).style.backgroundColor = `#8babf0`;
+    document.getElementById(`js-list1`).style.backgroundColor = `#8babf0`;
+    document.getElementById(`js-list1`).style.boxShadow = `0 0 2px 4px #8babf0`;
+    document.getElementById(`js-list2`).style.backgroundColor = `#8babf0`;
+    document.getElementById(`js-list2`).style.boxShadow = `0 0 2px 4px #8babf0`;
+    document.getElementById(`js-list3`).style.backgroundColor = `#8babf0`;
+    document.getElementById(`js-list3`).style.boxShadow = `0 0 2px 4px #8babf0`;
+    document.getElementById(`js-list4`).style.backgroundColor = `#8babf0`;
+    document.getElementById(`js-list4`).style.boxShadow = `0 0 2px 4px #8babf0`;
+}
