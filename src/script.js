@@ -16,15 +16,12 @@ const checkbox4 = document.getElementById(`checkbox4`);
 const addBtn = document.querySelector(`.add-btn`);
 const input = document.querySelector(`.todo-input`);
 
-const checkbox = document.querySelector
-
-
 addBtn.addEventListener("click", () => {
-    console.log("Button wurde geklickt!"); 
-    console.log("Input-Wert: ", input.value);
+    console.log("Button has been clicked!"); 
+    console.log("Input-value: ", input.value);
 
     if (input.value.trim() === "") {
-        alert("Bitte eine Aufgabe eingeben!");
+        alert("Please enter a to-do!");
         return;
     }
     if (getComputedStyle(list1).display === "none") {
@@ -40,34 +37,33 @@ addBtn.addEventListener("click", () => {
         list4.style.display = "flex";
         todo4.innerText = input.value;
     } else {
-        alert("Maximale Anzahl an To-Dos erreicht!");
+        alert("Maximum number of to-dos reached!");
     }
-
     });
 
 checkbox1.addEventListener("change", () => {
-    console.log("checkbox1 wurde geändert");
+    console.log("checkbox1 has changed");
     list1.style.display = `none`;
     todo1.innerText = ``;
     checkbox1.checked = false;
 });
 
 checkbox2.addEventListener("change", () => {
-    console.log("checkbox2 wurde geändert");
+    console.log("checkbox2 has changed");
     list2.style.display = `none`;
     todo2.innerText = ``;
     checkbox2.checked = false;
 });
 
 checkbox3.addEventListener("change", () => {
-    console.log("checkbox3 wurde geändert");
+    console.log("checkbox2 has changed");
     list3.style.display = `none`;
     todo3.innerText = ``;
     checkbox3.checked = false;
 });
 
 checkbox4.addEventListener("change", () => {
-    console.log("checkbox4 wurde geändert");
+    console.log("checkbox2 has changed");
     list4.style.display = `none`;
     todo4.innerText = ``;
     checkbox4.checked = false;
