@@ -2,6 +2,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -15,8 +16,8 @@ body{
     align-items: center;
 }
 .todo-container{
-    height: 60%;
-    width: 60%;
+    height: 62%;
+    width: 50%;
     background-color: #dfc19b;
     display: flex;
     flex-direction: column;
@@ -25,16 +26,94 @@ body{
     box-shadow: 0 0 2px 5px #dfc19b;
 }
 .todo-container h1{
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 30px 0;
     text-align: left;
 }
-.todo-input{
+
+.input-container {
+    position: relative;
     width: 80%;
-    height: 5%;
+    margin: 20px 0;
+  }
+  
+  .todo-input {
+    width: 100%;
+    height: 30px;
     border: none;
     border-radius: 50px;
-    padding: 20px;
+    padding: 25px 60px 25px 20px;
+    margin:  0;
     font-size: 1.2rem;
+    box-sizing: border-box;
+  }
+  
+  .add-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 80px;
+    background: #5885ff;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background: #3a6bff;
+  }
+
+  .list-container{
+    width: 80%;
+    height: 60%;
+  }
+  .list-container .list{
+    box-shadow: 0 0 2px 4px #afc3fa;
+    background-color: #5885ff;
+    border-radius: 100px;
+    width: 100%;
+    height: 20%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;    
+    position: relative;
+  }
+  .list-container .list label p{
+    color: white;
+    margin: 0 0 0 40px;
+    font-size: 1.2rem;
+  }
+
+  input[type="checkbox"] {
+    display: none;
 }
 
+.custom-checkbox {
+    position: absolute;
+    left:20px;
+    top:20px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url('/src/img/Taskunchecked.svg') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+
+input[type="checkbox"]:checked + .custom-checkbox {
+    background: url('/src/img/Taskchecked.svg') no-repeat center;
+    background-size: contain;
+}
+input[type="checkbox"]:checked + .custom-checkbox + p {
+    text-decoration: line-through;
+}
