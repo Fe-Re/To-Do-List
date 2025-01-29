@@ -60,57 +60,65 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+function addTodo(){
+    if (input.value.trim() === "") {
+        alert("Please enter a to-do!");
+        return;
+      }
+      if (getComputedStyle(list1).display === "none") {
+        list1.style.display = "flex";
+        todo1.innerText = input.value;
+      } else if (getComputedStyle(list2).display === "none") {
+        list2.style.display = "flex";
+        todo2.innerText = input.value;
+      } else if (getComputedStyle(list3).display === "none") {
+        list3.style.display = "flex";
+        todo3.innerText = input.value;
+      } else if (getComputedStyle(list4).display === "none") {
+        list4.style.display = "flex";
+        todo4.innerText = input.value;
+      } else {
+        alert("Maximum number of to-dos reached!");
+      }
+      input.value = "";
+      saveTodos();
+
+input.addEventListener(`keypress`, (event) => {
+    if(event.key === `Enter`){
+        addTodo();
+    }
+});
+
+}
+
+function todoChecked(list,todo,checkbox){
+    list.style.display = `none`;
+    todo.innerText = ``;
+    checkbox.checked = false;
+    saveTodos();
+}
+
 addBtn.addEventListener("click", () => {
-  if (input.value.trim() === "") {
-    alert("Please enter a to-do!");
-    return;
-  }
-  if (getComputedStyle(list1).display === "none") {
-    list1.style.display = "flex";
-    todo1.innerText = input.value;
-  } else if (getComputedStyle(list2).display === "none") {
-    list2.style.display = "flex";
-    todo2.innerText = input.value;
-  } else if (getComputedStyle(list3).display === "none") {
-    list3.style.display = "flex";
-    todo3.innerText = input.value;
-  } else if (getComputedStyle(list4).display === "none") {
-    list4.style.display = "flex";
-    todo4.innerText = input.value;
-  } else {
-    alert("Maximum number of to-dos reached!");
-  }
-  input.value = "";
-  saveTodos();
+    addTodo();
 });
 
 checkbox1.addEventListener("change", () => {
-  list1.style.display = `none`;
-  todo1.innerText = ``;
-  checkbox1.checked = false;
-  saveTodos();
+    todoChecked(list1,todo1,checkbox1);
 });
 
 checkbox2.addEventListener("change", () => {
-  list2.style.display = `none`;
-  todo2.innerText = ``;
-  checkbox2.checked = false;
-  saveTodos();
+    todoChecked(list2,todo2,checkbox2);
 });
 
 checkbox3.addEventListener("change", () => {
-  list3.style.display = `none`;
-  todo3.innerText = ``;
-  checkbox3.checked = false;
-  saveTodos();
+    todoChecked(list3,todo3,checkbox3);
 });
 
 checkbox4.addEventListener("change", () => {
-  list4.style.display = `none`;
-  todo4.innerText = ``;
-  checkbox4.checked = false;
-  saveTodos();
+    todoChecked(list4,todo4,checkbox4);
 });
+
+
 
 if (hour < 5 || hour > 20){
     document.querySelector(`body`).style.background = `linear-gradient(to bottom, #081443 70%, #1e3597)`;
