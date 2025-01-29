@@ -57,6 +57,7 @@ body{
     width: 80px;
     background: #5885ff;
     border-radius: 30px;
+    border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -87,6 +88,10 @@ body{
     padding: 0 30px;    
     position: relative;
   }
+  #js-list1, #js-list2, #js-list3, #js-list4 {
+    display: none;
+  }
+
   .list-container .list label p{
     color: white;
     margin: 0 0 0 40px;
