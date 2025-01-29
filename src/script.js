@@ -16,61 +16,95 @@ const checkbox4 = document.getElementById(`checkbox4`);
 const addBtn = document.querySelector(`.add-btn`);
 const input = document.querySelector(`.todo-input`);
 
-addBtn.addEventListener("click", () => {
-    console.log("Button has been clicked!"); 
-    console.log("Input-value: ", input.value);
+function saveTodos() {
+  const todos = {
+    list1: {
+      displayed: list1.style.display !== 'none',
+      text: todo1.innerText,
+    },
+    list2: {
+      displayed: list2.style.display !== 'none',
+      text: todo2.innerText,
+    },
+    list3: {
+      displayed: list3.style.display !== 'none',
+      text: todo3.innerText,
+    },
+    list4: {
+      displayed: list4.style.display !== 'none',
+      text: todo4.innerText,
+    }
+  };
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
 
-    if (input.value.trim() === "") {
-        alert("Please enter a to-do!");
-        return;
-    }
-    if (getComputedStyle(list1).display === "none") {
-        list1.style.display = "flex";
-        todo1.innerText = input.value;
-    } else if (getComputedStyle(list2).display === "none") {
-        list2.style.display = "flex";
-        todo2.innerText = input.value;
-    } else if (getComputedStyle(list3).display === "none") {
-        list3.style.display = "flex";
-        todo3.innerText = input.value;
-    } else if (getComputedStyle(list4).display === "none") {
-        list4.style.display = "flex";
-        todo4.innerText = input.value;
-    } else {
-        alert("Maximum number of to-dos reached!");
-    }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTodos = localStorage.getItem('todos');
+  if (savedTodos) {
+    const todos = JSON.parse(savedTodos);
+    
+    list1.style.display = todos.list1.displayed ? 'flex' : 'none';
+    todo1.innerText = todos.list1.text;
+
+    list2.style.display = todos.list2.displayed ? 'flex' : 'none';
+    todo2.innerText = todos.list2.text;
+
+    list3.style.display = todos.list3.displayed ? 'flex' : 'none';
+    todo3.innerText = todos.list3.text;
+
+    list4.style.display = todos.list4.displayed ? 'flex' : 'none';
+    todo4.innerText = todos.list4.text;
+  }
+});
+
+addBtn.addEventListener("click", () => {
+  if (input.value.trim() === "") {
+    alert("Please enter a to-do!");
+    return;
+  }
+  if (getComputedStyle(list1).display === "none") {
+    list1.style.display = "flex";
+    todo1.innerText = input.value;
+  } else if (getComputedStyle(list2).display === "none") {
+    list2.style.display = "flex";
+    todo2.innerText = input.value;
+  } else if (getComputedStyle(list3).display === "none") {
+    list3.style.display = "flex";
+    todo3.innerText = input.value;
+  } else if (getComputedStyle(list4).display === "none") {
+    list4.style.display = "flex";
+    todo4.innerText = input.value;
+  } else {
+    alert("Maximum number of to-dos reached!");
+  }
+  input.value = "";
+  saveTodos();
+});
 
 checkbox1.addEventListener("change", () => {
-    console.log("checkbox1 has changed");
-    list1.style.display = `none`;
-    todo1.innerText = ``;
-    checkbox1.checked = false;
+  list1.style.display = `none`;
+  todo1.innerText = ``;
+  checkbox1.checked = false;
+  saveTodos();
 });
 
 checkbox2.addEventListener("change", () => {
-    console.log("checkbox2 has changed");
-    list2.style.display = `none`;
-    todo2.innerText = ``;
-    checkbox2.checked = false;
+  list2.style.display = `none`;
+  todo2.innerText = ``;
+  checkbox2.checked = false;
+  saveTodos();
 });
 
 checkbox3.addEventListener("change", () => {
-    console.log("checkbox2 has changed");
-    list3.style.display = `none`;
-    todo3.innerText = ``;
-    checkbox3.checked = false;
+  list3.style.display = `none`;
+  todo3.innerText = ``;
+  checkbox3.checked = false;
+  saveTodos();
 });
 
 checkbox4.addEventListener("change", () => {
-    console.log("checkbox2 has changed");
-    list4.style.display = `none`;
-    todo4.innerText = ``;
-    checkbox4.checked = false;
+  list4.style.display = `none`;
+  todo4.innerText = ``;
+  checkbox4.checked = false;
+  saveTodos();
 });
-
-
-
-
-
-
