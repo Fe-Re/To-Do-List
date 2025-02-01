@@ -105,18 +105,18 @@ body{
 .custom-checkbox {
     position: absolute;
     left:20px;
-    top:20px;
+    top:30px;
     width: 40px;
     height: 40px;
     display: inline-block;
-    background: url('/src/img/Taskunchecked.svg') no-repeat center;
+    background: url('img/Taskunchecked.svg') no-repeat center;
     background-size: contain;
     cursor: pointer;
 }
 
 
 input[type="checkbox"]:checked + .custom-checkbox {
-    background: url('/src/img/Taskchecked.svg') no-repeat center;
+    background: url('img/Taskchecked.svg') no-repeat center;
     background-size: contain;
 }
 input[type="checkbox"]:checked + .custom-checkbox + p {

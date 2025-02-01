@@ -82,14 +82,15 @@ function addTodo(){
       }
       input.value = "";
       saveTodos();
-
-input.addEventListener(`keypress`, (event) => {
-    if(event.key === `Enter`){
-        addTodo();
+  
     }
-});
+    
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            addTodo();
+        }
+    });
 
-}
 
 function todoChecked(list,todo,checkbox){
     list.style.display = `none`;
