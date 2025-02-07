@@ -1,6 +1,8 @@
 const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 const input = document.querySelector('.todo-input');
+const now = new Date();
+let hour = now.getHours();
 
 renderTodoList();
 
@@ -53,3 +55,13 @@ input.addEventListener('keydown', (event) =>{
         addTodo();
     }
 });
+
+if (hour < 6 || hour > 20){
+    document.querySelector(`body`).style.background = `linear-gradient(to bottom, #081443 70%, #1e3597)`;
+    document.querySelector(`.todo-container`).style.backgroundColor = `#1e3597`;
+    document.querySelector(`.todo-container`).style.color = `white`;
+    document.querySelector(`.todo-container`).style.boxShadow = `0 0 2px 5px #1e3597`;
+    document.querySelector(`.add-btn`).style.backgroundColor = `#8babf0`;
+    document.querySelector(`.list`).style.backgroundColor = `#8babf0`;
+    document.querySelector(`.list`).style.boxShadow = `0 0 2px 4px #8babf0`;
+}
