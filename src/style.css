@@ -86,16 +86,13 @@ body{
     background-color: #5885ff;
     border-radius: 100px;
     width: 100%;
-    height: 20%;
+    height: 100px;
     margin: 20px 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 0 30px;    
     position: relative;
-  }
-  #js-list1, #js-list2, #js-list3, #js-list4 {
-    display: none;
   }
 
   .list-container .list label p{
@@ -127,4 +124,16 @@ input[type="checkbox"]:checked + .custom-checkbox {
 }
 input[type="checkbox"]:checked + .custom-checkbox + p {
     text-decoration: line-through;
+}
+
+@media (max-width: 500px){
+  .todo-container h1{
+    font-size: 1.6rem;
+    margin: 30px 0;
+    text-align: left;
+}
+.todo-container{
+  width: 90%;
+  height: 90%;
+}
 }
