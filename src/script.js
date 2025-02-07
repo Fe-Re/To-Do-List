@@ -85,11 +85,11 @@ function addTodo(){
   
     }
     
-      input.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            addTodo();
-        }
-    });
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addTodo();
+    }
+});
 
 
 function todoChecked(list,todo,checkbox){
