@@ -1,5 +1,7 @@
 const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
+const input = document.querySelector('.todo-input');
+
 renderTodoList();
 
 function renderTodoList() {
@@ -37,7 +39,6 @@ document.querySelector('.add-btn').addEventListener('click', () => {
 });
 
 function addTodo() {
-    const input = document.querySelector('.todo-input');
     const name = input.value;
 
     if (name) {
@@ -46,3 +47,9 @@ function addTodo() {
         renderTodoList();
     }
 }
+
+input.addEventListener('keydown', (event) =>{
+    if(event.key === 'Enter'){
+        addTodo();
+    }
+});
